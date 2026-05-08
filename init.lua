@@ -18,28 +18,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- 3. Load the plugin list from your core/plugins.lua file
+-- 3. Load the plugin list from core/plugins.lua file
 local plugin_specs = require 'core.plugins'
-
--- 4. Setup Lazy.nvim using those specs
-require('lazy').setup(plugin_specs, {
-  ui = {
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
-  },
-  checker = { enabled = true },
-  change_detection = { notify = false },
-})
+require('lazy').setup(plugin_specs)
