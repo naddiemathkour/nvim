@@ -12,7 +12,7 @@ return {
     provider = 'gemini',
     providers = {
       gemini = {
-        model = 'gemini-3.1-pro-preview',
+        model = 'gemini-2.5-flash-lite',
         timeout = 30000,
         temperature = 0,
         max_tokens = 20480,
