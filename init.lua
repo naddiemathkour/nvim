@@ -1,13 +1,7 @@
--- Set leader keys before anything else
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- 1. Load basic settings and keymaps
-require 'core.options'
-require 'core.keymaps'
-require 'core.apis'
-
--- 2. Bootstrap Lazy.nvim (Plugin Manager)
+-- 1. Bootstrap Lazy.nvim (Plugin Manager)
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -18,6 +12,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- 3. Load the plugin list from core/plugins.lua file
+-- 2. Load basic settings and keymaps
+require 'core.options'
+require 'core.keymaps'
+require 'core.apis'
 local plugin_specs = require 'core.plugins'
 require('lazy').setup(plugin_specs)

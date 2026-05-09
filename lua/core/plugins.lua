@@ -6,6 +6,7 @@ return {
   require 'core.plugins.auto-complete',
   require 'core.plugins.auto-format',
   require 'core.plugins.autopairs',
+  require 'core.plugins.avante',
   require 'core.plugins.debug',
   require 'core.plugins.fuzzy-finder',
   require 'core.plugins.gitsigns',
