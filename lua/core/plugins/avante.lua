@@ -1,7 +1,5 @@
 return {
   'yetone/avante.nvim',
-  -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-  -- ⚠️ must add this setting! ! !
   build = vim.fn.has 'win32' ~= 0 and 'powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false' or 'make',
   event = 'VeryLazy',
   version = false,
@@ -12,10 +10,23 @@ return {
     provider = 'gemini',
     providers = {
       gemini = {
-        model = 'gemini-2.5-flash-lite',
+        model = 'gemini-3.1-flash-lite',
         timeout = 30000,
         temperature = 0,
         max_tokens = 20480,
+      },
+    },
+
+    -- Configure the ACP provider details
+    acp_providers = {
+      ["gemini-cli"] = {
+        command = "gemini",
+        args = { "--acp" },
+        env = {
+          NODE_NO_WARNINGS = "1",
+          GEMINI_API_KEY = os.getenv("GEMINI_API_KEY"),
+        },
+        auth_method = "gemini-api-key", -- Matches official Gemini CLI auth
       },
     },
   },
@@ -25,8 +36,8 @@ return {
     --- Optional Dependencies:
     'nvim-telescope/telescope.nvim', -- for file_selector provider telescope
     'hrsh7th/nvim-cmp', -- autocompletion for avante commands and mentions
-    'stevearc/dressing.nvim', -- for input provider dressing
-    'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
+    'folke/snacks.nvim', -- for input provider snacks
+    'nvim-tree/nvim-web-devicons',
     {
       'HakonHarnes/img-clip.nvim',
       event = 'VeryLazy',
