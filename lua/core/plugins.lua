@@ -16,6 +16,7 @@ local specs = {
   require 'core.plugins.lsp-config',
   require 'core.plugins.mini-nvim',
   require 'core.plugins.neo-tree',
+  require 'core.plugins.snacks',
   require 'core.plugins.theme',
   require 'core.plugins.tint',
   require 'core.plugins.todos',
