@@ -1,7 +1,6 @@
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
-  branch = '0.1.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
     { -- Native FZF sorter
@@ -16,6 +15,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
   },
   config = function()
     require('telescope').setup {
+      defaults = {
+        -- While treesitter drama continues:
+        preview = { treesitter = false },
+      },
       extensions = {
         ['ui-select'] = { require('telescope.themes').get_dropdown() },
       },
