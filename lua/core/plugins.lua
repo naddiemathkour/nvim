@@ -1,4 +1,4 @@
-return {
+local specs = {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- Modularized local plugins
@@ -21,7 +21,9 @@ return {
   require 'core.plugins.todos',
   require 'core.plugins.tree-sitter',
   require 'core.plugins.which-key',
-}, {
+}
+
+local opts = {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
@@ -40,3 +42,5 @@ return {
     },
   },
 }
+
+return { specs = specs, opts = opts }

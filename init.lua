@@ -15,6 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 -- 2. Load basic settings and keymaps
 require 'core.options'
 require 'core.keymaps'
-require 'core.apis'
-local plugin_specs = require 'core.plugins'
-require('lazy').setup(plugin_specs)
+require 'core.autocmds'
+local plugins = require 'core.plugins'
+require('lazy').setup(plugins.specs, plugins.opts)
