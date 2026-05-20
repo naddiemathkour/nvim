@@ -21,6 +21,9 @@ return { -- Autoformat
         lsp_format = disable_filetypes[vim.bo[bufnr].filetype] and 'never' or 'fallback',
       }
     end,
-    formatters_by_ft = { lua = { 'stylua' } },
+    formatters_by_ft = {
+      lua = { 'stylua' },
+      htmlangular = { 'prettier' },
+    },
   },
 }
